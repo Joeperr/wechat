@@ -1,0 +1,37 @@
+.list{
+    font-size: 30px;
+    font-weight: bolder;
+    line-height: 30px;
+    margin-bottom: 40px;
+}
+.con{
+    margin-bottom: 10px;
+    position: relative;
+}
+.all{
+    display: flex;
+}
+.all image{
+    width:300px;
+    height: 60px;
+    margin-right: 10px;
+
+}
+.all view{
+    flex: 1;
+    font-size: 12px;
+}
+.con button{
+     position: absolute;
+     left: 0;
+     right: 0;
+     top: 0;
+     bottom: 0;
+     border: 0;
+     background: 0;
+
+}
+button::after{
+    border: 0;
+     background: 0;
+}

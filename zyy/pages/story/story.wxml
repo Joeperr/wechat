@@ -1,0 +1,15 @@
+<text class="list" wx:if="{{li}}">故事列表</text>
+<scroll-view wx:if="{{li}}" style="height:100%">
+    <view wx:for="{{storyData.contentlist}}" class="con">
+        <view>{{item.title}}</view>
+        <view class="all">
+            <image src="{{item.img}}"></image>
+            <text>{{item.desc}}</text>
+        </view>
+        <button data-id="{{item.id}}" bindtap="click"></button>
+    </view>
+</scroll-view>
+<button wx:if="{{content}}" bindtap="back">返回列表</button>
+<view class="content" wx:if="{{content}}">
+ {{textContent.text}}
+</view>

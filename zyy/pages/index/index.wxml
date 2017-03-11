@@ -1,0 +1,87 @@
+<view class="tab">
+  <button bindtap="buttonClick" data-index="1"
+  class="{{now==1?'active':''}}">推荐</button>
+   <button bindtap="buttonClick" data-index="2"
+  class="{{now==2?'active':''}}">排行榜</button>
+   <button bindtap="buttonClick" data-index="3"
+  class="{{now==3?'active':''}}">热门搜索</button>
+</view>
+<!--第一部分-->
+<view wx:if="{{ now==1 }}">
+     <!--  轮播图    -->
+     <swiper indicator-dots="true" autoplay="true" interval="2000" circular="true" >
+         <swiper-item wx:for="{{ picArr }}">
+            <image src="{{ item.picUrl}}"></image>
+         </swiper-item>
+     </swiper>  
+    <view class="tex">电台</view>
+     <view class="img">
+          <view wx:for="{{imgArr}}">
+             <image src="{{item.picUrl}}"></image>
+             <view class="list">{{ item.Ftitle}}</view>
+          </view>
+     </view>
+      <view class="tex">热门歌单</view>
+     <view class="hot">
+          <view wx:for="{{hot}}" class="list">
+             <image src="{{item.picUrl}}"></image>
+             <view class="hot-list">{{ item.songListDesc}}</view>
+             <view class="name">{{ item.songListAuthor}}</view>
+             <view class="small"><text> </text>{{ item.accessnum}}</view>
+              <view class="big"></view>
+          </view>
+     </view>
+     <view class="more">去客户端发现更多好音乐 > </view>
+      <view class="computer">查看电脑版网页 </view>
+      <view class="footer-logo"> </view>
+      <view class-="last">Copyright © 1998 -  Tencent. All Rights Reserved.</view>
+</view>
+
+<!--第二部分-->
+<view wx:if="{{ now==2 }}">
+     <view class="songs" wx:for="{{songAll}}">
+         <image src="{{item.picUrl}}"></image>
+         <view class="top-info">
+              <view class="top-text">{{item.topTitle}}</view>
+              <view wx:for="{{item.songList}}" class="top-songs">
+                    <text class="num">{{index+1}}</text>
+                    <text>{{item.singername}}</text>-<text>{{item.songname}}</text>
+                    <view class="ico"> > </view>
+              </view>
+         </view>
+     </view>
+     <view class="more">去客户端发现更多好音乐 > </view>
+</view>
+
+<!--第三部分-->
+<view  wx:if="{{ now==3 }}">
+    <view class="search">
+        <view class="wrap">
+             <text></text>
+             <input type="text" placeholder="搜索歌曲,歌单,专辑" bindfocus="focus" bindblur="blur"/>
+        </view>
+        <view class="console" wx:if="{{isfocus}}" bindtap="console">取消</view>
+    </view>
+    <view class="result" wx:if="{{focus}}" wx:if="{{display}}">
+     <view class="result-tip">热门搜索</view>
+     <view class="result-songs" wx:for="{{hotKey.hotkey}}">
+          <view>{{item.k}}</view>
+          <button class="result-key" data-index="{{index}}" bindtap="btClick" data-value="{{item.k}}"></button>
+     </view>
+</view>
+<view wx:for="{{songsName}}" wx:if="{{isfocus}}" class="songs-all">
+        <view class="song-icon"></view>
+          <view class="song-name">{{item.songname}}</view>
+          <view wx:for="{{item.singer}}" class="song-singer">
+                <view>{{item.name}}</view>
+          </view>
+ </view>
+ <view wx:for="{{searchFor}}" wx:if="{{ifsearch}}" class="songs-all">
+        <view class="song-icon"></view>
+          <view class="song-name">{{item.songname}}</view>
+          <view wx:for="{{item.singer}}" class="song-singer">
+                <view>{{item.name}}</view>
+          </view>
+ </view>
+
+</view>

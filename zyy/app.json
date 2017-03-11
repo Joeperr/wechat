@@ -1,0 +1,31 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/story/story"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "pink",
+    "navigationBarTitleText": "qq音乐",
+    "navigationBarTextStyle":"white"
+  },
+  "tabBar": {
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "首页",
+      "iconPath": "imgs/index.png",
+      "selectedIconPath": "imgs/index-active.png"
+    },{
+      "pagePath": "pages/logs/logs",
+      "text": "日志",
+      "iconPath": "imgs/blog-active.png",
+      "selectedIconPath": "imgs/blog.png"
+    },{
+      "pagePath": "pages/story/story",
+      "text": "故事",
+      "iconPath": "imgs/story.png",
+      "selectedIconPath": "imgs/story-active.png"
+    }]
+  }
+}
